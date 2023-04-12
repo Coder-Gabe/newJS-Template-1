@@ -70,25 +70,64 @@
 			<div class="col-lg-8 col-12">
 				<pre class="line-numbers">
 						<code class="language-js">
-function displayMessage() {
-	let msg = document.getElementById('message').value;
-	//alert(msg);
+function getValues() {
+	let startValue = document.getElementById('startValue').value;
+	let endValue = document.getElementById('endValue').value;
 
-	Swal.fire(
-		{
-			backdrop: false,
-			title: 'App Name',
-			text: msg
-		}
-	);
+	let startNumber = parseInt(startValue);
+	let endNumber = parseInt(endValue);
+
+	let numberArray = generateNumbers(startNumber, endNumber);
+	displayNumbers(numberArray);
 }
+
+	// generate the range of numbers to display
+	function generateNumbers(start, end) {
+
+	let basketOfNumbers = [];
+
+	for (let number = 0; number <= 100; number=number + 1) { 
+
+		basketOfNumbers.push(number); 
+
+		} 
+
+		return basketOfNumbers; 
+	}
+	
+	//placing the generate numbers on the page and bolding the even numbers 
+	
+		function displayNumbers(numbers) { 
+	
+		let results = '';
+
+		for (let index = 0; index < numbers.length; index=index + 1) { 
+
+			let currentNumber=numbers[index]; 
+			
+			if (currentNumber % 2==0) { 
+				results = results + "&lt;tr>&lt;td class='evenNumber'>" + currentNumber + "</td></tr>" ; 
+			} else {
+				results = results + "&lt;tr>&lt;td>" + currentNumber + "</td></tr>" ; } 
+			
+			} 
+			
+			let tableBody=document.getElementById('results');
+			tableBody.innerHTML=results; 
+		}
+
 						</code>
 					</pre>
 			</div>
 			<div class="col-lg-4 col-12">
-				<p>This code is structured in one function</p>
-				<h4>displayMessage</h4>
-				<p>Prints out the Message</p>
+				<br>
+				<h4>Number Generator</h4>
+				<p>This code uses 3 functions to display the results of 2 random numbers
+					entered into the app with the even numbers displaying in bold red.</p>
+				<p>1. <strong>function getValues()</strong> receives the 2 numbers entered into app and parses both numbers for interger verification.</p>
+				<p>2. <strong>function generateNumbers(start, end)</strong> receives both numbers entered into app and runs a <strong>for loop</strong> starting a 0 and ending at 100. The <strong>for loop</strong> results are <strong>return</strong> and stored in <strong>basketOfNumbers</strong>array and then get passed back to <strong>generateNumbers</strong> and stored in <strong>numberArray </strong>variable. On line 9, <strong>displayNumbers(numberArray)</strong> passes the previous <strong>for loop</strong> stored array
+				numbers into <strong>function displayNumbers(numbers)</strong> located on line 28.</p>
+				<p>3. <strong>function displayNumbers(numbers)</strong> runs a <strong>for loop</strong> and uses a <strong> if/else statement</strong> to display all even numbers in bold red and all odd numbers in regular black text. </p>	
 			</div>
 		</div>
 	</main>
