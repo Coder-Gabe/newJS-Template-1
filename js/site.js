@@ -16,7 +16,7 @@ function generateNumbers(start, end) {
 
 	let basketOfNumbers = [];
 
-	for (let number = 0; number <= 100; number = number + 1) {
+	for (let number = start; number <= end; number = number + 1) {
 
 		basketOfNumbers.push(number);
 
