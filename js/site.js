@@ -16,7 +16,7 @@ function getValues() {
 				icon: 'error',
 				title: 'Oops!',
 				text: 'Please enter valid numbers for the start and end values',
-				backdrop: fals
+				backdrop: false
 				});
 	}
 
